@@ -6,7 +6,7 @@
 */
 
 //----------------------------------------------------------------------------
-// Voici le fichier ou se trouve les fonction que tu devras coder.
+// Voici le fichier ou se trouve les fonctions que tu devras coder.
 // Il y a 5 fonctions à faire, bonne chance!
 // (N'hésites pas à poser des questions si quelque chose n'est pas clair)
 //----------------------------------------------------------------------------
@@ -20,7 +20,11 @@ entities_array_t create_entities_array(void)
 {
     entities_array_t entities_array;
 
-    entities_array.size = 0;
+    // Code ici !
+    // --------------
+
+
+    // --------------
     return (entities_array);
 }
 
