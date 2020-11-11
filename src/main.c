@@ -39,20 +39,20 @@ void manage_event_window(sfRenderWindow *window)
 int main(void)
 {
     sfRenderWindow *window = create_window();
-    entites_array_t entites_array = create_entites_array();
+    entities_array_t entities_array = create_entities_array();
     if (window == NULL)
         return (EXIT_FAILURE);
-    entites_array = add_entity(entites_array, (sfVector2f){0, 0}, \
+    entities_array = add_entity(entities_array, (sfVector2f){0, 0}, \
     (sfVector2f){10, 0}, "resource/octocat.png");
     while (sfRenderWindow_isOpen(window)) {
         manage_event_window(window);
-        entites_array = update_entities(entites_array);
+        entities_array = update_entities(entities_array);
         sfRenderWindow_clear(window, sfBlack);
-        display_entities(window, entites_array);
+        display_entities(window, entities_array);
         sfRenderWindow_display(window);
     }
 
-    destroy_entities(entites_array);
+    destroy_entities(entities_array);
     sfRenderWindow_destroy(window);
     return (EXIT_SUCCESS);
 }
