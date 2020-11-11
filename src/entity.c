@@ -60,7 +60,7 @@ entities_array_t update_entities(entities_array_t entities_array)
     sfTime time;
     float seconds;
 
-    for (unsigned int index = 0; index != entities_array.size; index++) {
+    for (int index = 0; index < entities_array.size; index++) {
         time = sfClock_getElapsedTime(entities_array.entities[index].clock);
         seconds = time.microseconds / 1000000.0;
         // Code ici !
