@@ -18,7 +18,7 @@ Initialise la taille (entities.size) de la structure.
 */
 entities_array_t create_entities_array(void)
 {
-    entities_array_t entities_array;
+    entities_array_t entities_array = {0};
 
     // Code ici !
     // --------------
@@ -31,7 +31,7 @@ entities_array_t create_entities_array(void)
 /*
 Crée une nouvelle entity et ajoute la dans le tableau (entities_array.entities).
 Composantes à initialiser:
-- positon
+- position
 - velocity
 - sprite (utilise la fonction sfSprite_create)
 - texture (utilise la fonction sfTexture_createFromFile)
@@ -39,7 +39,7 @@ Composantes à initialiser:
 Il faudra également mettre à jour la valeur de entities_array.size, celle-ci 
 augmentant de 1 à chaque fois qu'une entité est ajoutée.
 */
-entities_array_t add_entity(entities_array_t entities_array, sfVector2f positon, \
+entities_array_t add_entity(entities_array_t entities_array, sfVector2f position, \
 sfVector2f velocity, char *path)
 {
     entity_t entity;
@@ -48,6 +48,15 @@ sfVector2f velocity, char *path)
     // Code ici !
     // --------------
 
+    entity.position = position;
+    entity.velocity = velocity;
+    entity.sprite = sfSprite_create();
+    entity.texture = sfTexture_createFromFile(path, NULL);
+    entity.clock = sfClock_create();
+    sfSprite_setTexture(entity.sprite, entity.texture, sfTrue);
+    sfSprite_setPosition(entity.sprite, entity.position);
+
+    entities_array.size += 1;
 
     // --------------
     entities_array.entities[size] = entity;
@@ -55,7 +64,7 @@ sfVector2f velocity, char *path)
 }
 
 /*
-Mets à jour la positon des entités à l'aide de leur vélocité.
+Mets à jour la position des entités à l'aide de leur vélocité.
 Le faire si uniquement le nombe de seconds passé est > 1.0.
 (utilise la fonction sfClock_restart et sfSprite_setPosition)
 */

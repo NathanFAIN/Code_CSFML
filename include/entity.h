@@ -21,7 +21,7 @@ typedef struct entities_array_s entities_array_t;
 
 struct entity_s
 {
-    sfVector2f positon;
+    sfVector2f position;
     sfVector2f velocity;
     sfSprite *sprite;
     sfTexture *texture;
@@ -36,7 +36,7 @@ struct entities_array_s
 
 entities_array_t create_entities_array(void);
 entities_array_t add_entity(entities_array_t entities_array, \
-sfVector2f positon, sfVector2f velocity, char *path);
+sfVector2f position, sfVector2f velocity, char *path);
 entities_array_t update_entities(entities_array_t entities_array);
 void display_entities(sfRenderWindow *window, entities_array_t entities_array);
 void destroy_entities(entities_array_t entities_array);
