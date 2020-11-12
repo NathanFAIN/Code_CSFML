@@ -100,8 +100,8 @@ void display_entities(sfRenderWindow *window, entities_array_t entities_array)
 
 /*
 Détruis toutes les entités :
-Pour chaque entité, tu dois détruire sa texture et son sprite.
-(utilise la fonction sfTexture_destroy et sfSprite_destroy)
+Pour chaque entité, tu dois détruire sa texture, son sprite et sa clock.
+(utilise la fonction sfTexture_destroy, sfSprite_destroy et sfClock_destroy)
 */
 void destroy_entities(entities_array_t entities_array)
 {
